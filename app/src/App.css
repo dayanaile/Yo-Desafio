@@ -1,18 +1,38 @@
+body{
+	background: #1C1E2E;
+}
+
+.navbar{
+	display: flex;
+	align-items: center;
+	background: #1C1E2E;
+	color: #fff;
+	font-size: 10px;
+}
+
+.icon{
+	width: 30px;
+	height: 30px;
+	padding: 0 15px;
+}
+
 .container {
-	display: grid;
-	grid-template-columns: 7fr 3fr;
+	display: flex;
+	flex-direction: column;
+}
+
+.container__videoBox{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #1C1E2E;
 }
 
 .myId {
 	margin-right: 5rem;
 	border-radius: 5px;
-	background: #c9d6ff; 
-	background: -webkit-linear-gradient(to right, #e2e2e2, #c9d6ff); 
-	background: linear-gradient(
-		to right,
-		#e2e2e2,
-		#c9d6ff
-	); 
+	background: #fff; 
+ 
 
 	padding: 2rem;
 	display: grid;
@@ -26,25 +46,20 @@
 }
 
 .video-container {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	display: flex;
 	justify-content: center;
 	align-content: center;
-	margin-top: 10rem;
-	margin-left: 10rem;
+
+}
+
+.videoBox{
+	border: 2px solid transparent;
+	border-radius: 15px;
+	width: 300px;
+	padding: 0 10px;
 }
 
 .caller {
 	text-align: center;
 	color: #fff;
-}
-
-body {
-	background: #4776e6; 
-	background: -webkit-linear-gradient(to right, #8e54e9, #4776e6); 
-	background: linear-gradient(
-		to right,
-		#8e54e9,
-		#4776e6
-	); 
 }
