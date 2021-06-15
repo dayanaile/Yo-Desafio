@@ -4,21 +4,30 @@ body{
 
 .navbar{
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	background: #1C1E2E;
 	color: #fff;
 	font-size: 10px;
+	padding: 0 20px;
+}
+
+.navbar__tittle{
+	display: flex;
+	justify-content: row;
+	align-items: center;
 }
 
 .icon{
 	width: 30px;
 	height: 30px;
-	padding: 0 15px;
+	padding-right: 15px;
 }
 
 .container {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 }
 
 .container__videoBox{
@@ -26,23 +35,27 @@ body{
 	justify-content: space-around;
 	align-items: center;
 	background-color: #1C1E2E;
+	padding-top: 50px;
+}
+
+.container__formBox{
+	display: flex;
+	justify-content: center;
+	padding-top: 25px;
 }
 
 .myId {
-	margin-right: 5rem;
 	border-radius: 5px;
 	background: #fff; 
- 
 
 	padding: 2rem;
-	display: grid;
-	justify-content: center;
-	align-content: center;
+	display: flex;
+	flex-direction: row;
+
 }
 
 .call-button {
 	text-align: center;
-	margin-top: 2rem;
 }
 
 .video-container {

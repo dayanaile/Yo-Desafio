@@ -3,6 +3,7 @@ import IconButton from "@material-ui/core/IconButton"
 import TextField from "@material-ui/core/TextField"
 import AssignmentIcon from "@material-ui/icons/Assignment"
 import PhoneIcon from "@material-ui/icons/Phone"
+import CallEndIcon from '@material-ui/icons/CallEnd';
 import React, { useEffect, useRef, useState } from "react"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import Peer from "simple-peer"
@@ -97,61 +98,33 @@ function App() {
 		<>
 		<div className="container">
       <div className="navbar">
-        <img
-          alt=""
-          src="/chat-de-video.png"
-          className="icon"
-        />{' '}
-        <h1>Yo Challenge</h1>
-      </div>
-      <div className="container__videoBox" >
-        <div className="video-container">
-          <div className="video">
-            {stream &&  <video className="videoBox" playsInline muted ref={myVideo} autoPlay/>}
-          </div>
-          <div className="video">
-            {callAccepted && !callEnded ?
-            <video className="videoBox" playsInline ref={userVideo} autoPlay/>:
-            null}
-          </div>
+        <div className="navbar__tittle">
+          <img
+            alt=""
+            src="/chat-de-video.png"
+            className="icon"
+          />{' '}
+          <h1>Yo Challenge</h1>
         </div>
-        <div className="myId">
-          <TextField
-            id="filled-basic"
-            label="Name"
-            variant="filled"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            style={{ marginBottom: "20px" }}
-          />
-          <CopyToClipboard text={me} style={{ marginBottom: "2rem" }}>
+        <CopyToClipboard text={me}>
             <Button variant="contained" color="primary" startIcon={<AssignmentIcon fontSize="large" />}>
               Copy ID
             </Button>
-          </CopyToClipboard>
-
-          <TextField
-            id="filled-basic"
-            label="ID to call"
-            variant="filled"
-            value={idToCall}
-            onChange={(e) => setIdToCall(e.target.value)}
-          />
-          <div className="call-button">
-            {callAccepted && !callEnded ? (
-              <Button variant="contained" color="secondary" onClick={leaveCall}>
-                End Call
-              </Button>
-            ) : (
-              <IconButton color="primary" aria-label="call" onClick={() => callUser(idToCall)}>
-                <PhoneIcon fontSize="large" />
-              </IconButton>
-            )}
-            {idToCall}
-          </div>
+        </CopyToClipboard>
+      </div>
+      <div className="container__videoBox">
+        <div className="video-container">
+            <div className="video">
+              {stream &&  <video className="videoBox" playsInline muted ref={myVideo} autoPlay/>}
+            </div>
+            <div className="video">
+              {callAccepted && !callEnded ?
+              <video className="videoBox" playsInline ref={userVideo} autoPlay/>:
+              null}
+            </div>
         </div>
       </div>
-			<div>
+      <div>
 				{receivingCall && !callAccepted ? (
 						<div className="caller">
 						<h1 >{name} is calling...</h1>
@@ -161,6 +134,38 @@ function App() {
 					</div>
 				) : null}
 			</div>
+      <div className="container__formBox" >
+        <div className="myId">
+          <TextField
+            id="filled-basic"
+            label="Name"
+            variant="filled"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            style={{ marginBottom: "20px" }}
+          />
+
+          <div className="call-button">
+            {callAccepted && !callEnded ? (
+              <IconButton color="primary" variant="contained" color="secondary" onClick={leaveCall}>
+                <CallEndIcon fontSize="large" />
+              </IconButton>
+            ) : (
+              <IconButton color="primary" aria-label="call" onClick={() => callUser(idToCall)}>
+                <PhoneIcon fontSize="large" />
+              </IconButton>
+            )}
+          </div>
+
+          <TextField
+            id="filled-basic"
+            label="ID to call"
+            variant="filled"
+            value={idToCall}
+            onChange={(e) => setIdToCall(e.target.value)}
+          />
+        </div>
+      </div>
 		</div>
 		</>
 	)
